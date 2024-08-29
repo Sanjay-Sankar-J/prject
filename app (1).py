@@ -5,8 +5,8 @@ from tensorflow.keras.models import load_model
 import joblib
 
 # Load the model and scaler
-model = load_model('deep_learning_model.h5')
-scaler = joblib.load('scaler.pkl')
+model = load_model('deep_learning_model(2).h5')
+scaler = joblib.load('scaler(2).pkl')
 
 # Streamlit UI
 st.title('Classification Prediction using Deep Learning')
