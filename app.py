@@ -1,4 +1,3 @@
-
 import streamlit as st
 import numpy as np
 from tensorflow.keras.models import load_model
@@ -16,10 +15,10 @@ selected_features = ['total_time3', 'gmrt_in_air7', 'mean_gmrt7', 'mean_speed_in
                      'paper_time9', 'total_time9', 'air_time16', 'mean_gmrt17',
                      'disp_index22', 'disp_index23']
 
-# Inputs for the 10 features
+# Inputs for the 10 features using sliders
 features = []
 for feature_name in selected_features:
-    feature = st.number_input(f'{feature_name}', value=0.0)
+    feature = st.slider(f'{feature_name}', min_value=0.0, max_value=100.0, value=0.0)
     features.append(feature)
 
 # Convert the inputs to a numpy array
@@ -33,4 +32,3 @@ if st.button('Predict'):
     prediction = model.predict(input_data_scaled)
     class_name = 'Class 1' if prediction[0][0] > 0.5 else 'Class 0'
     st.write(f'Prediction: {class_name}')
-    
